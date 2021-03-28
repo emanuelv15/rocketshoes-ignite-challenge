@@ -106,8 +106,10 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
           if (product.id === productId && amount <= stockProduct.amount && amount >= 1) {
             product.amount = amount
           } else if (product.id === productId && amount > stockProduct.amount) {
+            // eslint-disable-next-line no-throw-literal
             throw 'Quantidade solicitada fora de estoque'
           } else if (product.id === productId && amount < 1) {
+            // eslint-disable-next-line no-throw-literal
             throw 'Erro na alteração de quantidade do produto'
           }
   
@@ -118,6 +120,7 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
   
         setCart([...cartItemsAmountUpdated]);
       } else {
+        // eslint-disable-next-line no-throw-literal
         throw 'Erro na alteração de quantidade do produto'
       }
 
